@@ -1,0 +1,16 @@
+# 建议配置（未部署）
+# 需要 blog.atschx.me 已有 Cloudflare 橙色云朵（proxied）DNS 记录
+# 本配置文件不会自动生效，需在 Cloudflare 账户手动创建 Worker 并绑定
+
+name = "blog-cosmic-elements-xbit-proxy"
+main = "worker.js"
+compatibility_date = "2026-11-24"
+
+# 路由配置：绑定整个主机名 blog.atschx.me/*
+# 原因：
+# 1) 代码内部使用 startsWith 进行前缀检查
+# 2) 不匹配的路径需要 fetch(request) 透传到现有源
+# 3) 路由模式无法包含 query 参数，必须以 * 结尾才能匹配带参数的 URL
+[[routes]]
+pattern = "blog.atschx.me/*"
+zone_name = "atschx.me"

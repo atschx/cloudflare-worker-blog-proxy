@@ -1,0 +1,13 @@
+{
+  "name": "cloudflare-worker-blog-proxy",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cloudflare Worker reverse proxy for blog.atschx.me",
+  "main": "worker.js",
+  "scripts": {
+    "test": "node test-worker.mjs"
+  },
+  "keywords": ["cloudflare", "worker", "proxy"],
+  "author": "",
+  "license": "MIT"
+}
